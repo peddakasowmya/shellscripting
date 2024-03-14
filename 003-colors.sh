@@ -22,3 +22,8 @@ echo -e "\e[33m I am pritning Yellow color \e[0m"
 echo -e "\e[34m I am pritning Blue color \e[0m"
 echo -e "\e[36m I am pritning Cyan color \e[0m"
 echo -e "\e[37m I am pritning Light Gray color \e[0m"
+
+#Adding BACKGROUND COLOR
+#echo -e "\e[43;31m I am pritning text with background color \e[0m"
+echo -e "\n\n"
+echo -e "\e[43;31m I am pritning text with background color \e[0m"
