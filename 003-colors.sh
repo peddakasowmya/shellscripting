@@ -15,4 +15,10 @@
 #SYNTAX to print colors
 
 #echo -e "\e[COLOR CODEm I am printing a color \e[0m"
+echo -e "\e[30m I am pritning Black color \e[0m"
+echo -e "\e[31m I am pritning Red color \e[0m"
 echo -e "\e[32m I am pritning Green color \e[0m"
+echo -e "\e[33m I am pritning Yellow color \e[0m"
+echo -e "\e[34m I am pritning Blue color \e[0m"
+echo -e "\e[36m I am pritning Cyan color \e[0m"
+echo -e "\e[37m I am pritning Light Gray color \e[0m"
