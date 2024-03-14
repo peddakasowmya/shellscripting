@@ -12,3 +12,11 @@ echo Welcome to Bash Scripting
 
 #for my reference, clone the GIT repository, change to directory and to execute the file use EX: "bash 001-shebang.sh" as that file does not have EXECUTE permission 'rwx'
 echo "Hello Wolrd"
+echo "Sowmya"
+
+#Anything IMP should be placed in "" and not in '', as '' are quite dangerous
+# git add . ; git commit -m "bash auto push" ; git push
+
+echo line1
+echo line2
+echo line3
