@@ -9,3 +9,6 @@
 #Apart from first line, any line with '#' is referred as COMMENT.
 
 echo Welcome to Bash Scripting
+
+#for my reference, clone the GIT repository, change to directory and to execute the file use EX: "bash 001-shebang.sh" as that file does not have EXECUTE permission 'rwx'
+echo "Hello Wolrd"
