@@ -12,3 +12,6 @@ echo "Script name is: $0"
 #$0 : prints the name of the script that we are running
 echo $0
 echo $1
+echo $2
+echo $3
+echo $4
