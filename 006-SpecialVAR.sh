@@ -19,5 +19,5 @@ echo $#    #prints the arguments ised in script
 
 echo $? #prints the exit code of the previous command
 echo $*  #prints all arguments user
-echo $@
+echo $@  #prints all arguments user
 
