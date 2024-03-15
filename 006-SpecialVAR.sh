@@ -5,13 +5,14 @@
 #we cannot create special variables, we can only use them
 
 a=900
+TEAM=$1
 
 echo "value of a is $a"
 echo "Script name is: $0"
 
+
+echo "script name is $0"
+echo "Name of the team running the script is: $TEAM"
+
 #$0 : prints the name of the script that we are running
-echo $0
-echo $1
-echo $2
-echo $3
-echo $4
+
