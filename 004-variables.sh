@@ -9,4 +9,4 @@ b=def
 #lets print the variables
 echo a  #prints a
 echo $a
-echo "The value of b is $b"
+echo -e "\e[34m The value of b is $b\e[0m"
