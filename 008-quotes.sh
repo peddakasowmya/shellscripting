@@ -1,7 +1,7 @@
 #!/bin/bash
 
-""  --> double quotes
-''  --> single quotes when used with speacial variables will make it loose its power
+#""  --> double quotes
+#''  --> single quotes when used with speacial variables will make it loose its power
 
 a=100
 echo $?
