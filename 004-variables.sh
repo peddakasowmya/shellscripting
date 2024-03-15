@@ -9,8 +9,8 @@ CUSTDATA="shipping"
 #lets print the variables
 echo a  #prints a
 echo $a
-echo -e "\e[34mThe value of b is $b\e[0m"
-echo -e "The value of b is\e[33 $b\e[0m"
+echo -e "\e[34mThe value of b is $b \e[0m"
+echo -e "The value of b is\e[33 ${b} \e[0m"
 echo $a,$b 
 
 #the below commands remove the data
