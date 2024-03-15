@@ -9,6 +9,6 @@ a=900
 echo "value of a is $a"
 echo "Script name is: $0"
 
-
-
 #$0 : prints the name of the script that we are running
+echo $0
+echo $1
