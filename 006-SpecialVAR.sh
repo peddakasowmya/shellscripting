@@ -12,7 +12,8 @@ echo "Script name is: $0"
 
 
 echo "script name is $0"
-echo "Name of the team running the script is: $TEAM"
+echo -e "Name of the team running the script is: \e[32m $TEAM \e[0m"
+
 
 #$0 : prints the name of the script that we are running
 
