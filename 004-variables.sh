@@ -12,6 +12,7 @@ echo $a
 echo -e "\e[34m The value of b is $b \e[0m"
 echo -e "The value of b is \e[33m ${b} \e[0m"
 echo $a,$b 
+echo -e "The value of D is $d"   #There is no value of D
 
 #the below commands remove the data
 #rm -rf /data/prod/${CUSTDATA}  ===> /data/prod/shipping #this is equivalent to
