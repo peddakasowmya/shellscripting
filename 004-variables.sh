@@ -10,4 +10,4 @@ b=def
 #echo a  #prints a
 #echo $a
 #echo -e "\e[34mThe value of b is $b\e[0m"
-echo ${a,b}
+echo $a,$b 
