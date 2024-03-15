@@ -17,3 +17,4 @@ echo $#    #prints the arguments ised in script
 
 #$0 : prints the name of the script that we are running
 
+#  $?  -- always gives the exit code of the previous successful command
