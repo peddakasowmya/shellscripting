@@ -9,7 +9,11 @@ CUSTDATA="shipping"
 #lets print the variables
 echo a  #prints a
 echo $a
-echo -e "\e[34mThe value of b is $b\e[0m"
+echo -e "\e[34mThe value of b is $b \e[0m"
+echo -e "The value of b is \e[31 $b,$a \e[0m"
 echo $a,$b 
 
-rm -rf /data/prod/${CUSTDATA}  ===> /data/prod/shipping #this is equivalent to
+#the below commands remove the data
+#rm -rf /data/prod/${CUSTDATA}  ===> /data/prod/shipping #this is equivalent to
+#rm -rf /data/prod/${APPDATA}   ===> /data/prod which deletes all the files
+
