@@ -31,7 +31,7 @@ sample
 stat () {
     echo "Number of active sessions $(who|wc -l)"
     echo "Todays date is $(date +%F)"
-    echo "Load average is last 1 minute : ${uptime | awk -F : '{print $NF}' | awk -F ',' '{print $1}'}"
+    echo "Load average is last 1 minute : $(uptime | awk -F : '{print $NF}' | awk -F ',' '{print $1}')"
 }
 stat
 sleep 3
