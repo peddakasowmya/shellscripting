@@ -34,3 +34,5 @@ stat () {
     echo "Load average is last 1 minute : ${uptime | awk -F : '{print $NF}' | awk -F ',' '{print $1}'}"
 }
 stat
+sleep 3
+stat
