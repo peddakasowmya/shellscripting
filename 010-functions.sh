@@ -16,3 +16,14 @@ f       #calling funtion
 echo "Today we are learning functions"
 echo "Lets explore functions"
 f
+
+#calling function from another function
+
+sample() {
+
+    echo "Hai from sample function"
+    echo "calling function F"
+    f
+}
+
+sample
