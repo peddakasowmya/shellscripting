@@ -1,7 +1,7 @@
 #!/bin/bash
 # redirectors
 
-echo "This file is all about i/p, o/p and errors redirectors"
+echo "This file is all about i/p, o/p and error redirectors"
 
 #how to take input, give outputs and handle the erors
 <<redirectors
