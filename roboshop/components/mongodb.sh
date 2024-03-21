@@ -25,14 +25,15 @@ stat $?
 
 echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
 
-echo -n "Installing MONGODB Server"
+echo -n "Installing $COMPONENT Server"
 dnf install -y mongodb-org   &>>  LOGFILE
 stat $?
 
-echo -n "Enabling the MONGODB"
+echo -n "Enabling the $COMPONENT"
 systemctl enable mongod     &>>  LOGFILE
 stat $?
 
-echo -n "Starting the MONGODB"
+echo -n "Starting the $COMPONENT"
 systemctl start mongod      &>>  LOGFILE
 stat $?
+
