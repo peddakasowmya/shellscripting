@@ -1,5 +1,8 @@
 #!/bin/bash
 # redirectors
+
+echo "This is all about i/p o/p and errors redirectors"
+
 #how to take input, give outputs and handle the erors
 <<redirectors
 1) Input redirector:   ' < '    - $mysql < /student/sql
