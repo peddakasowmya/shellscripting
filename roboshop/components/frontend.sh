@@ -39,16 +39,16 @@ stat $?
 
 echo -n "Performing $COMPONENT Cleanup"
 cd /usr/share/nginx/html
-rm -rf *            &>> $LOGFILE
+rm -rf *                           &>> $LOGFILE
 stat $?
 
 echo -n "Extracting $COMPONENT:"
-unzip /tmp/frontend.zip      &>> $LOGFILE
+unzip /tmp/frontend.zip             &>> $LOGFILE
 stat $?
 
 echo -n "Configuring $COMPONENT:"
-mv ${COMPONENT}-main/* .
-mv static/* .
-rm -rf ${COMPONENT}-main README.md
+mv ${COMPONENT}-main/* .             &>> $LOGFILE
+mv static/* .                        &>> $LOGFILE
+rm -rf ${COMPONENT}-main README.md   &>> $LOGFILE
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
