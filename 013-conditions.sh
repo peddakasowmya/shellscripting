@@ -10,7 +10,7 @@ case $var in
 esac
 CASE
 
-ACTION =$1
+ACTION=$1
 case $ACTION in
     start)
     echo "starting dispatch Service"
