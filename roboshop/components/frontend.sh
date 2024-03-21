@@ -52,3 +52,7 @@ mv static/* .                        &>> $LOGFILE
 rm -rf ${COMPONENT}-main README.md   &>> $LOGFILE
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
+
+echo -n "Starting the web server"
+systemctl start nginx   &>>  LOGFILE
+stat $?
