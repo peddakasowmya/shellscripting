@@ -47,6 +47,10 @@ echo -n "Downloading the $COMPONENT component"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
 
+echo -n "Performing the $COMPONENT cleanup"
+rm -rf ${APPUSER}       &>> $LOGFILE
+stat $?
+
 echo -n "Extracting the $APPUSER: "
 cd /home/roboshop
 unzip -o /tmp/catalogue.zip        &>> $LOGFILE
@@ -62,7 +66,7 @@ cd ${APPUSER_DIR}
 npm install             &>> $LOGFILE
 stat $?
 
-# $ vim systemd.servce
+# $ vim systemd.service
 
 # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
