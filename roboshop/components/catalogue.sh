@@ -36,7 +36,7 @@ stat $?
 
 echo -n "Creating $APPUSER user account:  "
 id $APPUSER
-if [ $? -nq 0 ] ; then
+if [ $? -ne 0 ] ; then
     useradd $APPUSER
     stat $?
 else
