@@ -18,3 +18,7 @@ On your account  ---> Profile ---> Settings --> Developeer settings ----> Classi
 
 1) Always consider something as working if it works multiple times
 2) try to avoid the repetetive code and use functions as much as possible to avoid duplication
+
+## DRY Code vs WET code
+DRY : Don't Repeat Yourself  --> reduce repetition of code
+WET : Write Everything Twice --> 
