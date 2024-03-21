@@ -13,15 +13,15 @@ CASE
 ACTION=$1
 case $ACTION in
     start)
-        echo  -e "\e[32m starting dispatch Service \e[0m"
+        echo  -e "\e[41;32m starting dispatch Service \e[0m"
         exit 0
         ;;
     stop)
-        echo -e "\e[31m stopping Dispatch Service \e[0m"
+        echo -e "\e[40;31m stopping Dispatch Service \e[0m"
         exit 1
         ;;
     restart)
-        echo -e "\e[33m restarting Dispatch Service \e[0m"
+        echo -e "\e[42;33m restarting Dispatch Service \e[0m"
         exit 3
         ;;
     *)
