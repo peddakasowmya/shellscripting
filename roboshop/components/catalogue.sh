@@ -11,7 +11,7 @@ fi
 COMPONENT="catalogue"
 LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
-
+APPUSER_DIR="/home/roboshop/${COMPONENT}"
 stat() {
     if [ $1 -eq 0 ] ; then
     echo -e "\e[32m Success\e[0m"
@@ -52,10 +52,15 @@ cd /home/roboshop
 unzip -o /tmp/catalogue.zip        &>> $LOGFILE
 stat $?
 
+echo -n "Configuring permission : "
+mv /home/roboshop/${COMPONENT}-main ${APPUSER_DIR}  &>> $LOGFILE
+chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
+stat $?
 
-# $ mv catalogue-main catalogue
-# $ cd /home/roboshop/catalogue
-# $ npm install
+echo -n "Generating the $COMPONENT Artifacts : "
+cd ${APPUSER_DIR}
+npm install             &>> $LOGFILE
+stat $?
 
 # $ vim systemd.servce
 
