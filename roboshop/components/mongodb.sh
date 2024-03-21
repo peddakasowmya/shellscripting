@@ -19,11 +19,12 @@ else
     echo -e "\e[31m Failure \e[0m"
 fi
 }
+
+echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
+
 echo -n "Configuring $COMPONENT repository"
 curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 stat $?
-
-echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
 
 echo -n "Installing $COMPONENT Server"
 dnf install -y mongodb-org   &>>  LOGFILE
