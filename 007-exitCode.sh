@@ -8,3 +8,4 @@
 #1 - 125 ---- Some failure from the command
 # 125+ -- Systems failure
 
+# exit code plays a key role in debugging big scripts
