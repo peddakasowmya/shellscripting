@@ -13,5 +13,5 @@ done
 COMMENT
 
 for x in 10 20 30 40 50 ; do
-    echo -e " values are $x "
+    echo -e " values are $x \n\t"
 done
