@@ -73,7 +73,7 @@ mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/catalogue.service
 stat $?
 
 echo -n "Updating the proxy:"
-sed -e "/$COMPONENT/s/localhost/mongodb.rooshop.internal/" roboshop.conf
+sed -i -e "/$COMPONENT/s/localhost/mongodb.rooshop.internal/" roboshop.conf
 stat $?
 
 echo -n "Restarting the $COMPONENT Service : "
