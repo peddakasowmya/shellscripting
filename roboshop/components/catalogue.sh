@@ -66,13 +66,21 @@ cd ${APPUSER_DIR}
 npm install             &>> $LOGFILE
 stat $?
 
-# $ vim systemd.service
 
-# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
-# systemctl status catalogue -l
+echo -n "Configuring the $COMPONENT Service : "
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER}/systemd.service
+mv ${APPUSER}/systemd.service /etc/systemd/system/catalogue.service
+stat $?
+
+
+echo -n "Restarting the $COMPONENT Service : "
+systemctl daemon-reload &>> $LOGFILE
+systemctl start catalogue   &>> $LOGFILE
+systemctl enable catalogue  &>> $LOGFILE
+systemctl restart catalogue   &>> $LOGFILE
+stat $?
+
+#systemctl status catalogue -l
 
 # vim /etc/nginx/default.d/roboshop.conf
 
