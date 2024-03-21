@@ -10,3 +10,7 @@ For Authentication, GITHUB offers PAT (Personal Access Token)
 
 Before making first push lets generate a Token,
 On your account  ---> Profile ---> Settings --> Developeer settings ----> Classic Token
+
+
+###whenever you design anything, make sure that piece of automation should work in all other environments as well (prod, non-prod, qa, dev)
+

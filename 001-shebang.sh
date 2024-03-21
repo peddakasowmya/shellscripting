@@ -1,4 +1,4 @@
-#!/bin/shell
+#!/bin/bash
 
 #Anything starts with '#' is referred as Comment.
 
