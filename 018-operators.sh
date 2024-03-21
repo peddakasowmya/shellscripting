@@ -1,10 +1,25 @@
 #!/bin/bash
 
 <<COMMENT
+## Expressions are categorised in to three types and based on expression 
+
+1. numbers
+2. Strings
+3. Files
+
+Operators on Numbers:
+
+-eq, -ne, -gt, -ge, -lt, -le
+
+[ 1 -eq 1 ]
+[ 1 -ne 1 ]
+
 Operators on strings:
 =, ==, !=
+a = 10  --> assigning the value
+==      --> String comparison
 
-[abc = abc]
+[ abc = abc ]
 
 -z , -n
 
