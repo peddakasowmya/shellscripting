@@ -11,6 +11,7 @@ fi
 COMPONENT="catalogue"
 LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
+
 stat() {
     if [ $1 -eq 0 ] ; then
     echo -e "\e[32m Success\e[0m"
@@ -34,8 +35,14 @@ dnf install nodejs -y           &>> $LOGFILE
 stat $?
 
 echo -n "Creating $APPUSER user account:  "
-useradd $APPUSER
-stat $?
+id $APPUSER
+if [ $? -nq 0 ] ; then
+    useradd $APPUSER
+    stat $?
+else
+    echo -e "\e[35m Skipping \e[0m"
+fi
+
 
 # $ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 # $ cd /home/roboshop
