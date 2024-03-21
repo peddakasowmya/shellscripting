@@ -68,16 +68,16 @@ stat $?
 
 
 echo -n "Configuring the $COMPONENT Service : "
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER}/systemd.service
-mv ${APPUSER}/systemd.service /etc/systemd/system/catalogue.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
+mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/catalogue.service
 stat $?
 
 
 echo -n "Restarting the $COMPONENT Service : "
-systemctl daemon-reload &>> $LOGFILE
-systemctl start catalogue   &>> $LOGFILE
-systemctl enable catalogue  &>> $LOGFILE
-systemctl restart catalogue   &>> $LOGFILE
+systemctl daemon-reload     &>> $LOGFILE
+systemctl start $COMPONENT   &>> $LOGFILE
+systemctl enable $COMPONENT  &>> $LOGFILE
+systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
 
 #systemctl status catalogue -l
