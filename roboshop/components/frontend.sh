@@ -43,7 +43,7 @@ rm -rf *            &>> $LOGFILE
 stat $?
 
 echo -n "Extracting $COMPONENT:"
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip      &>> $LOGFILE
 stat $?
 
 echo -n "Configuring $COMPONENT:"
