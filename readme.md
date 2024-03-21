@@ -14,3 +14,7 @@ On your account  ---> Profile ---> Settings --> Developeer settings ----> Classi
 
 ###whenever you design anything, make sure that piece of automation should work in all other environments as well (prod, non-prod, qa, dev)
 
+#Best practices to be followed for a better automation:
+
+1) Always consider something as working if it works multiple times
+2) try to avoid the repetetive code and use functions as much as possible to avoid duplication
