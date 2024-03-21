@@ -28,18 +28,18 @@ curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 stat $?
 
 echo -n "Installing $COMPONENT Server"
-dnf install -y mongodb-org   &>>  LOGFILE
+dnf install -y mongodb-org   &>> LOGFILE
 stat $?
 
 echo -n "Enabling the $COMPONENT"
-systemctl enable mongod     &>>  LOGFILE
+systemctl enable mongod     &>> LOGFILE
 stat $?
 echo -n "Enabling $COMPONENT visibility: "
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "restarting the $COMPONENT"
-systemctl restart mongod      &>>  LOGFILE
+systemctl restart mongod      &>> LOGFILE
 stat $?
 
 echo -n "Downloading the $COMPONENT schema file: "
@@ -48,7 +48,7 @@ stat $?
 
 echo -n "Extracting the $COMPONENT schema: "
 cd /tmp
-unzip ${COMPONENT}.zip     &>>  LOGFILE
+unzip ${COMPONENT}.zip     &>> LOGFILE
 stat $?
 
 echo -n "Injecting the $COMPONENT schema: "
