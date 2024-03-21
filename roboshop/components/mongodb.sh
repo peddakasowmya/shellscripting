@@ -48,13 +48,13 @@ stat $?
 
 echo -n "Extracting the $COMPONENT schema: "
 cd /tmp  
-unzip mongodb.zip        &>> LOGFILE
+unzip -o mongodb.zip        &>> LOGFILE
 stat $?
 
 echo -n "Injecting the $COMPONENT schema: "
 cd /tmp/mongodb-main
-mongo < catalogue.js
-mongo < users.js
+mongo < catalogue.js        &>> LOGFILE
+mongo < users.js            &>> LOGFILE
 stat $?
 
 echo -e "\e[35m **********__$COMPONENT configuration is Completed___************\e[0m"
