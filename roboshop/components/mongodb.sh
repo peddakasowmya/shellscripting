@@ -33,8 +33,10 @@ stat $?
 echo -n "Enabling the $COMPONENT"
 systemctl enable mongod     &>>  LOGFILE
 stat $?
+echo -n "Enabling $COMPONENT visibility:"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 
-echo -n "Starting the $COMPONENT"
-systemctl start mongod      &>>  LOGFILE
+echo -n "restarting the $COMPONENT"
+systemctl restart mongod      &>>  LOGFILE
 stat $?
 
