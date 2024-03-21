@@ -21,11 +21,11 @@ fi
 
 echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
 
-echo -n "Disabling default Nodejs"
+echo -n "Disabling default Nodejs version: "
 dnf module disable nodejs -y   &>> $LOGFILE
 stat $?
 
-echo -n "Enabling  Nodejs version 18"
+echo -n "Enabling  Nodejs version 18: "
 dnf module enable nodejs:18 -y  &>> $LOGFILE
 stat $?
 
