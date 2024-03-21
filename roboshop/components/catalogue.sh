@@ -49,7 +49,7 @@ stat $?
 
 echo -n "Extracting the $APPUSER: "
 cd /home/roboshop
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip        &>> $LOGFILE
 stat $?
 
 
