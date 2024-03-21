@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# '$?'  --> to check the exit code
 #each and every action in linux has exit code
 # 0-255 is the range of codes
 # anything between 1-255 represents either partial success, partial failure or complete failure

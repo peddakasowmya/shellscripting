@@ -14,6 +14,7 @@ ACTION=$1
 case $ACTION in
     start)
         echo  -e "\e[41;32m starting dispatch Service \e[0m"
+# '$?'  --> to check the exit code
         exit 0
         ;;
     stop)
