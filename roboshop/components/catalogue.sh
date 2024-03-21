@@ -72,6 +72,9 @@ sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.se
 mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/catalogue.service
 stat $?
 
+echo -n "Updating the proxy:"
+sed -e "/$COMPONENT/s/localhost/mongodb.rooshop.internal/" roboshop.conf
+stat $?
 
 echo -n "Restarting the $COMPONENT Service : "
 systemctl daemon-reload     &>> $LOGFILE
@@ -80,7 +83,6 @@ systemctl enable $COMPONENT  &>> $LOGFILE
 systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
 
-#systemctl status catalogue -l
 
 # vim /etc/nginx/default.d/roboshop.conf
 
