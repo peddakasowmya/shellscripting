@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash components/3-catalogue.sh
+bash components/$1.sh
