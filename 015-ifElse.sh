@@ -16,7 +16,7 @@ elif [ "$ACTION" = "restart" ] ; then
     exit 2
 
 else
-    echo  -e "\e[37m Only start option is available \e[0m"
+    echo -e "\e[37m Valid options are: start, stop and restart only \e[0m"
     exit 3
 
 fi
