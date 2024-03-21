@@ -13,14 +13,17 @@ CASE
 ACTION=$1
 case $ACTION in
     start)
-    echo "starting dispatch Service"
-    ;;
+        echo "starting dispatch Service"
+        ;;
     stop)
-    echo "stopping Dispatch Service"
-    ;;
+        echo "stopping Dispatch Service"
+        ;;
     restart)
-    echo "restarting Dispatch Service"
-    ;;
+        echo "restarting Dispatch Service"
+        ;;
+    *)
+        echo "Valid options are: start, stop and restart only"
+        echo "Usage: bash conditions.sh start"
 
 esac
 
