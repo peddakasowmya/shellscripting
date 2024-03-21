@@ -9,11 +9,11 @@ if [ $ID -ne 0 ] ; then
     exit 1
 fi
 echo "Installing Nginx Web Server"
-dnf install nginx -y 
+dnf install nginx -y   &>>  /tmp/frontend.log
 
 echo "Enabling the service"
-systemctl enable nginx
+systemctl enable nginx  &>>  /tmp/frontend.log
 
 echo "Starting the web server"
-systemctl start nginx
+systemctl start nginx   &>>  /tmp/frontend.log
 
