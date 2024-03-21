@@ -9,7 +9,7 @@ if [ $ID -ne 0 ] ; then
 fi
 
 COMPONENT="mongodb"
-LOGFILE="/tmp/${COMPONENT}.log"
+LOGFILE="/tmp/mongodb.log"
 MONGO_REPO="https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/mongo.repo"
 SCHEMA_URL="https://github.com/stans-robot-project/mongodb/archive/main.zip"
 
@@ -47,8 +47,8 @@ curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
 stat $?
 
 echo -n "Extracting the $COMPONENT schema: "
-cd /tmp
-unzip mongodb.zip    &>> LOGFILE
+cd /tmp  
+unzip mongodb.zip        &>> LOGFILE
 stat $?
 
 echo -n "Injecting the $COMPONENT schema: "
