@@ -20,7 +20,7 @@ fi
 
 }
 
-echo -e "\e[32m **********__$COMPONENT configuration is Started___************\e[0m"
+echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
 
 echo -n "Installing Nginx Web Server"
 dnf install nginx -y   &>>  LOGFILE
@@ -58,5 +58,5 @@ echo -n "Restarting the web server"
 systemctl restart nginx   &>>  LOGFILE
 stat $?
 
-echo -e "\e[32m *********____$COMPONENT configuration is Completed___************\e[0m"
+echo -e "\e[35m *********____$COMPONENT configuration is Completed___************\e[0m"
 
