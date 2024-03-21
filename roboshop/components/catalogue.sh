@@ -43,10 +43,16 @@ else
     echo -e "\e[35m Skipping \e[0m"
 fi
 
+echo -n "Downloading the $COMPONENT component"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+stat $?
 
-# $ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
-# $ cd /home/roboshop
-# $ unzip /tmp/catalogue.zip
+echo -n "Extracting the $APPUSER: "
+cd /home/roboshop
+unzip /tmp/catalogue.zip
+stat $?
+
+
 # $ mv catalogue-main catalogue
 # $ cd /home/roboshop/catalogue
 # $ npm install
