@@ -22,3 +22,8 @@ On your account  ---> Profile ---> Settings --> Developeer settings ----> Classi
 ## DRY Code vs WET code
 DRY : Don't Repeat Yourself  --> reduce repetition of code
 WET : Write Everything Twice --> 
+
+### POints to be noted in DNS
+1. When you create any private DNS record, don't prefer to delete anytime, 
+2. just update the IP
+3. If you delete the private DNS record and try to create, sometimes it would take 24 hrs for it to work
