@@ -19,7 +19,7 @@ else
     echo -e "\e[31m Failure \e[0m"
 fi
 }
-
+echo -n "Configuring $COMPONENT repository"
 curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 stat $?
 
