@@ -35,7 +35,7 @@ dnf install nodejs -y           &>> $LOGFILE
 stat $?
 
 echo -n "Creating $APPUSER user account:  "
-id $APPUSER
+id $APPUSER     &>> $LOGFILE
 if [ $? -ne 0 ] ; then
     useradd $APPUSER
     stat $?
