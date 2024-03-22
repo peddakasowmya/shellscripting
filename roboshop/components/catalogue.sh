@@ -58,7 +58,7 @@ unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
 stat $?
 
 echo -n "Configuring permission : "
-mv /home/${APPUSER}/${COMPONENT}-main /home/${APPUSER}/${COMPONENT}  &>> $LOGFILE
+mv /home/roboshop/catalogue-main /home/roboshop/catalogue  &>> $LOGFILE
 chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
 stat $?
 
