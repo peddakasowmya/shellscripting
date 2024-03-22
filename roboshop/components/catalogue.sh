@@ -51,13 +51,14 @@ echo -n "Performing the $COMPONENT cleanup"
 rm -rf ${APPUSER}       &>> $LOGFILE
 stat $?
 
-echo -n "Extracting the $APPUSER: "
+echo -n "Extracting the $COMPONENT: "
 cd /home/roboshop
 unzip -o /tmp/catalogue.zip        &>> $LOGFILE
+mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}/${COMPONENT}  &>> $LOGFILE
 stat $?
 
 echo -n "Configuring permission : "
-mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}/${COMPONENT}  &>> $LOGFILE
+#mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}/${COMPONENT}  &>> $LOGFILE
 chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
 stat $?
 
@@ -68,7 +69,7 @@ stat $?
 
 
 echo -n "Configuring the $COMPONENT Service : "
-sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" ${APPUSER_DIR}/systemd.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
 mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
 stat $?
 
