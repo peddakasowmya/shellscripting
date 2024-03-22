@@ -63,7 +63,7 @@ stat $?
 
 echo -n "Generating the $COMPONENT Artifacts : "
 cd ${APPUSER_DIR}
-npm install             &>> $LOGFILE
+npm install             &>>   $LOGFILE
 stat $?
 
 
