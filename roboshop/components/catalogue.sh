@@ -43,17 +43,18 @@ else
     echo -e "\e[35m Skipping \e[0m"
 fi
 
+echo -n "Performing the $COMPONENT cleanup"
+rm -rf ${APPUSER}    || true   &>> $LOGFILE
+stat $?
+
 echo -n "Downloading the $COMPONENT component"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
 
-echo -n "Performing the $COMPONENT cleanup"
-rm -rf ${APPUSER}       &>> $LOGFILE
-stat $?
 
 echo -n "Extracting the $COMPONENT: "
 cd /home/roboshop
-unzip -o /tmp/catalogue.zip        &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
 mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}/${COMPONENT}  &>> $LOGFILE
 stat $?
 
