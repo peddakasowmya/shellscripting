@@ -73,9 +73,9 @@ mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
 stat $?
 
 
-echo -n "Restarting the $COMPONENT Service : "
-systemctl enable $COMPONENT  &>> $LOGFILE
-systemctl restart $COMPONENT   &>> $LOGFILE
-stat $?
+# echo -n "Restarting the $COMPONENT Service : "
+# systemctl enable $COMPONENT  &>> $LOGFILE
+# systemctl restart $COMPONENT   &>> $LOGFILE
+# stat $?
 
 echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
