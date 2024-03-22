@@ -58,8 +58,8 @@ echo -n "Updating the reverse proxy file:"
 sed -i -e '/catalogue/s/localhost/mongodb.rooshop.internal/' /etc/nginx/default.d/roboshop.conf
 stat $?
 
+
 echo -n "Restarting the web server"
-systemctl enable nginx  &>>  LOGFILE
 systemctl restart nginx   &>>  LOGFILE
 stat $?
 
