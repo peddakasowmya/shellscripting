@@ -55,7 +55,7 @@ stat $?
 echo -n "Extracting the $COMPONENT: "
 cd /home/roboshop
 unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
-mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}/${COMPONENT}  &>> $LOGFILE
+mv /home/${APPUSER}/${COMPONENT}-main /home/${APPUSER}/${COMPONENT} 
 stat $?
 
 echo -n "Configuring permission : "
