@@ -57,7 +57,7 @@ stat $?
 echo -n "Updating the reverse proxy file:"
 sed -i -e '/catalogue/s/localhost/catalogue.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
 stat $?
-
+#sleep 3
 
 echo -n "Restarting the web server"
 systemctl restart nginx   &>>  LOGFILE
