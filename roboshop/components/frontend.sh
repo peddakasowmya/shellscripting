@@ -55,7 +55,7 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Updating the proxy:"
-sed -i -e "/$COMPONENT/s/localhost/mongodb.rooshop.internal/" /etc/nginx/default.d/roboshop.conf
+sed -i -e "/catalogue/s/localhost/mongodb.rooshop.internal/" /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Restarting the web server"
