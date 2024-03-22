@@ -75,17 +75,9 @@ stat $?
 
 echo -n "Restarting the $COMPONENT Service : "
 systemctl daemon-reload     &>> $LOGFILE
-systemctl start $COMPONENT   &>> $LOGFILE
+#systemctl start $COMPONENT   &>> $LOGFILE
 systemctl enable $COMPONENT  &>> $LOGFILE
 systemctl restart $COMPONENT   &>> $LOGFILE
 stat $?
-
-
-# vim /etc/nginx/default.d/roboshop.conf
-
-
-# systemctl restart nginx
-
-
 
 echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
