@@ -58,6 +58,7 @@ stat $?
 
 echo -n "Configuring permission : "
 mv /home/roboshop/${COMPONENT}-main ${APPUSER_DIR}  &>> $LOGFILE
+mv /home/roboshop/systemd.service /home/roboshop/catalogue
 chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
 stat $?
 
@@ -68,7 +69,7 @@ stat $?
 
 
 echo -n "Configuring the $COMPONENT Service : "
-mv /home/roboshop/systemd.service /home/roboshop/catalogue
+#mv /home/roboshop/systemd.service /home/roboshop/catalogue
 sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" ${APPUSER_DIR}/systemd.service
 mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
 stat $?
