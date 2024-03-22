@@ -68,6 +68,7 @@ stat $?
 
 
 echo -n "Configuring the $COMPONENT Service : "
+mv /home/roboshop/systemd.service /home/roboshop/catalogue
 sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" ${APPUSER_DIR}/systemd.service
 mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
 stat $?
