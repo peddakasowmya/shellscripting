@@ -57,7 +57,8 @@ stat $?
 echo -n "Updating the reverse proxy file:"
     for i in catalogue user ; do
         sed -i -e "/$i/s/localhost/$i.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
-        stat $?
+    done 
+stat $?
 #sed -i -e '/user/s/localhost/user.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
 
 echo -n "Restarting the web server"
