@@ -42,3 +42,5 @@ echo -n "Starting $COMPONENT : "
 systemctl enable $COMPONENT      &>>  LOGFILE
 systemctl start $COMPONENT       &>>  LOGFILE
 stat $? 
+
+echo -e "\e[35m *******___$COMPONENT configuration is Completed___*****\e[0m"
