@@ -55,9 +55,10 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Updating the reverse proxy file:"
-sed -i -e '/catalogue/s/localhost/catalogue.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
-stat $?
-#sleep 3
+    for i in catalogue user ; do
+        sed -i -e "/$i/s/localhost/$i.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
+        stat $?
+#sed -i -e '/user/s/localhost/user.roboshop.internal/' /etc/nginx/default.d/roboshop.conf
 
 echo -n "Restarting the web server"
 systemctl restart nginx   &>>  LOGFILE
