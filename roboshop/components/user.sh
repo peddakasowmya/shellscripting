@@ -14,19 +14,6 @@ echo -e "\e[35m **********__$COMPONENT configuration is Started___*******\e[0m"
 #calling NoseJS function
 NODEJS
 
-echo -n "Downloading the $COMPONENT component"
-curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
-stat $?
-
-echo -n "Performing the $COMPONENT cleanup"
-rm -rf ${APPUSER_DIR}    || true   &>> $LOGFILE
-stat $?
-
-echo -n "Extracting the $COMPONENT: "
-cd /home/roboshop
-unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
-stat $?
-
 echo -n "Configuring permission : "
 mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}  &>> $LOGFILE
 chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
