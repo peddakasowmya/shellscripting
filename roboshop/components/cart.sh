@@ -14,14 +14,6 @@ echo -e "\e[35m **********__$COMPONENT configuration is Started___*******\e[0m"
 #calling NoseJS function
 NODEJS
 
-echo -n "Creating $APPUSER user account:  "
-id $APPUSER     &>> $LOGFILE
-if [ $? -ne 0 ] ; then
-    useradd $APPUSER
-    stat $?
-else
-    echo -e "\e[35m Skipping \e[0m"
-fi
 
 echo -n "Downloading the $COMPONENT component"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"

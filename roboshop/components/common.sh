@@ -16,8 +16,20 @@ else
 fi
 }
 
-# Declaring NodeJS function:
+#Declaring create user function:
+CREATE_USER() {
+echo -n "Creating $APPUSER user account:  "
+id $APPUSER     &>> $LOGFILE
+if [ $? -ne 0 ] ; then
+    useradd $APPUSER
+    stat $?
+else
+    echo -e "\e[35m Skipping \e[0m"
+fi
 
+}
+
+# Declaring NodeJS function:
 NODEJS() {
 
     echo -n "Disabling default Nodejs version: "
@@ -32,4 +44,5 @@ NODEJS() {
     dnf install nodejs -y           &>> $LOGFILE
     stat $?
 
+CREATE_USER
 }
