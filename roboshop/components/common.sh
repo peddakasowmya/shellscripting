@@ -46,6 +46,27 @@ DOWNLOAD_AND_EXTRACT() {
 
 }
 
+CONFIG_SVC(){
+    echo -n "Configuring permission : "
+mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}  &>> $LOGFILE
+chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
+stat $?
+
+
+echo -n "Configuring the $COMPONENT Service : "
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
+mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
+stat $?
+
+}
+START_SVC(){
+
+    echo -n "Restarting the $COMPONENT Service : "
+    systemctl enable $COMPONENT  &>> $LOGFILE
+    systemctl restart $COMPONENT   &>> $LOGFILE
+    stat $?
+
+}
 # Declaring NodeJS function:
 NODEJS() {
 
@@ -63,4 +84,12 @@ NODEJS() {
 
 CREATE_USER
 DOWNLOAD_AND_EXTRACT
+CONFIG_SVC
+
+echo -n "Generating the $COMPONENT Artifacts : "
+cd ${APPUSER_DIR}
+npm install     &>>   $LOGFILE
+stat $?
+START_SVC
+
 }
