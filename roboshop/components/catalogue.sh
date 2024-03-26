@@ -15,8 +15,6 @@ echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e
 #calling NoseJS function
 NODEJS
 
-
-
 echo -n "Downloading the $COMPONENT component"
 curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 stat $?
