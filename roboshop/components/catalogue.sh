@@ -11,17 +11,9 @@ source components/common.sh
 
 echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
 
-echo -n "Disabling default Nodejs version: "
-dnf module disable nodejs -y   &>> $LOGFILE
-stat $?
 
-echo -n "Enabling  Nodejs version 18: "
-dnf module enable nodejs:18 -y  &>> $LOGFILE
-stat $?
-
-echo -n "Installing  Nodejs: "
-dnf install nodejs -y           &>> $LOGFILE
-stat $?
+#calling NoseJS function
+NODEJS
 
 echo -n "Creating $APPUSER user account:  "
 id $APPUSER     &>> $LOGFILE

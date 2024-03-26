@@ -31,4 +31,6 @@ WET : Write Everything Twice -->
 # What we have achieved
 1. We have paraeterised the code, so that with very minimal changes we were able to re-use the code
 2. But is our code still DRY? --- NO
-3.  
+
+
+# We haveNodeJS, Python, Java, AngularJS based components...

@@ -16,4 +16,20 @@ else
 fi
 }
 
+# Declaring NodeJS function:
 
+NODEJS() {
+
+    echo -n "Disabling default Nodejs version: "
+    dnf module disable nodejs -y   &>> $LOGFILE
+    stat $?
+
+    echo -n "Enabling  Nodejs version 18: "
+    dnf module enable nodejs:18 -y  &>> $LOGFILE
+    stat $?
+
+    echo -n "Installing  Nodejs: "
+    dnf install nodejs -y           &>> $LOGFILE
+    stat $?
+
+}
