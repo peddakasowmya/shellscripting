@@ -27,3 +27,8 @@ WET : Write Everything Twice -->
 1. When you create any private DNS record, don't prefer to delete anytime, 
 2. just update the IP
 3. If you delete the private DNS record and try to create, sometimes it would take 24 hrs for it to work
+
+# What we have achieved
+1. We have paraeterised the code, so that with very minimal changes we were able to re-use the code
+2. But is our code still DRY? --- NO
+3.  

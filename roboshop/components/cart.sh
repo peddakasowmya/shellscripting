@@ -12,6 +12,7 @@ COMPONENT="cart"
 LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
 APPUSER_DIR="/home/roboshop/${COMPONENT}"
+
 stat() {
     if [ $1 -eq 0 ] ; then
     echo -e "\e[32m Success\e[0m"
