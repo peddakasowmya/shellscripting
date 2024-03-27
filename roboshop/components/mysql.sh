@@ -28,6 +28,10 @@ systemctl enable mysqld       &>> LOGFILE
 systemctl start mysqld        &>> LOGFILE
 stat $?
 
+echo -n "Fetching $COMPONENT root password:"
+
+
+
 # grep temp /var/log/mysqld.log
 # mysql_secure_installation --set-root-pass RoboShop@1
 
