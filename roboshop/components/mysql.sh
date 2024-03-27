@@ -32,11 +32,20 @@ echo -n "Fetching $COMPONENT root password:"
 DEFAULT_ROOT_PASSWORD=$(grep "temporary password" /var/log/mysqld.log | awk -f " " '{print $NF}')
 stat $?
 
-echo "showdatabases;" | mysql -uroot -pRoboshop@1   &>> LOGFILE
+echo "show databases;" | mysql -uroot -pRoboshop@1   &>> LOGFILE
 if [ $? -ne 0 ] ; then
-echo -n "Changing $COMPONENT root password:"
-echo "ALTER USER 'root@'location' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD
-stat $?
+    echo -n "Changing $COMPONENT root password:"
+    echo "ALTER USER 'root@'location' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD
+    stat $?
+fi
+
+echo "show plugins;" | mysql -uroot -pRoboshop@1 | grep validate_password  &>> LOGFILE
+if [ $? -eq 0 ] ; then
+    echo -n "Installing plugins"
+    echo "uninstall plugin validate_password" | mysql -uroot -pRoboshop@1
+    stat $?
+    echo "show databases;" | mysql -uroot -pRoboshop@1   &>> LOGFILE
+
 fi
 
 echo -n "Downloading the $COMPONENT component: "
