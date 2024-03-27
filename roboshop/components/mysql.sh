@@ -5,7 +5,7 @@ echo -e "\e[33m I am MySQL component \e[0m"
 COMPONENT="mysql"
 LOGFILE="/tmp/${COMPONENT}.log"
 MYSQL_REPO="https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/${COMPONENT}.repo"
-SCHEMA_URL="https://github.com/stans-robot-project/mongodb/archive/main.zip"
+SCHEMA_URL="https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 
 source components/common.sh         #source will keep all the functions local to the current script that declared in other file
 
@@ -29,13 +29,28 @@ systemctl start mysqld        &>> LOGFILE
 stat $?
 
 echo -n "Fetching $COMPONENT root password:"
+DEFAULT_ROOT_PASSWORD=$(grep "temporary password" /var/log/mysqld.log | awk -f " " '{print $NF}')
+stat $?
 
+echo "showdatabases;" | mysql -uroot -pRoboshop@1   &>> LOGFILE
+if [ $? -ne 0 ] ; then
+echo -n "Changing $COMPONENT root password:"
+echo "ALTER USER 'root@'location' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD
+stat $?
+fi
 
+echo -n "Downloading the $COMPONENT component: "
+curl -s -L -o /tmp/$COMPONENT.zip $SCHEMA_URL       &>> LOGFILE
+stat $?
 
-# grep temp /var/log/mysqld.log
-# mysql_secure_installation --set-root-pass RoboShop@1
+echo -n "Extracting the $COMPONENT component :"
+ls -ltr /tmp/
+unzip -o /tmp/mysql.zip                             &>> LOGFILE
+stat $?
 
-#  mysql -uroot -pRoboShop@1
-
+echo -n "Injecting the schema"
+cd /tmp/${COMPONENT}-main/
+mysql -u root -pRoboShop@1 <shipping.sql    &>> LOGFILE
+stat $?
 
 echo -e "\e[35m ********__$COMPONENT configuration is Completed___********\e[0m"
