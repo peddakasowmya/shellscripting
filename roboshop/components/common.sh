@@ -53,7 +53,7 @@ CONFIG_SVC(){
     stat $?
 
     echo -n "Configuring the $COMPONENT Service : "
-    sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
+    sed -i -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
     mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
     stat $?
 }
@@ -91,5 +91,24 @@ CONFIG_SVC
     stat $?
     
 START_SVC
+
+}
+
+MAVEN() {
+    echo -n "Installing MAVEN : "
+    dnf install maven -y    &>>   $LOGFILE
+    stat $?
+
+    CREATE_USER
+    DOWNLOAD_AND_EXTRACT
+
+    echo -n "Generating the artifact : "
+    cd ${APPUSER_DIR}
+    mvn clean package  &>>   $LOGFILE
+    mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar 
+    stat $?
+
+    CONFIG_SVC
+
 
 }
