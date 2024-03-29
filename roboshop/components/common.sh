@@ -122,8 +122,8 @@ PYTHON() {
     DOWNLOAD_AND_EXTRACT
 
     echo -n "Generating the artifact : "
-    cd /home/${APPUSER_DIR}/${COMPONENT}/
-    pip3.6 install -r requirements.txt
+    cd /home/${APPUSER_DIR}/${COMPONENT}/ 
+    pip3.6 install -r requirements.txt  &>>   $LOGFILE
     stat $?
 
     CONFIG_SVC
