@@ -16,6 +16,10 @@ else
 fi
 }
 
+LOGFILE="/tmp/${COMPONENT}.log"
+APPUSER="roboshop"
+APPUSER_DIR="/home/roboshop/${COMPONENT}"
+
 #Declaring create user function:
 CREATE_USER() {
 echo -n "Creating $APPUSER user account:  "

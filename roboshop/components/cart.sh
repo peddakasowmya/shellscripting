@@ -3,9 +3,6 @@
 echo -e "\e[33m I am catalogue component \e[0m"
 
 COMPONENT="cart"
-LOGFILE="/tmp/${COMPONENT}.log"
-APPUSER="roboshop"
-APPUSER_DIR="/home/roboshop/${COMPONENT}"
 
 source components/common.sh  
 
