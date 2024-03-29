@@ -109,6 +109,6 @@ MAVEN() {
     stat $?
 
     CONFIG_SVC
-
+    START_SVC
 
 }
