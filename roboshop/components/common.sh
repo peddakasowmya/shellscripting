@@ -103,8 +103,7 @@ MAVEN() {
     DOWNLOAD_AND_EXTRACT
 
     echo -n "Generating the artifact : "
-    cd ${APPUSER_DIR}
-    ls -ltr ${APPUSER_DIR}
+    cd /HOME/${APPUSER_DIR}/${COMPONENT}
     mvn clean package  &>>   $LOGFILE
     stat $?
     
