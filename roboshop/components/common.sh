@@ -53,7 +53,7 @@ CONFIG_SVC(){
     stat $?
 
     echo -n "Configuring the $COMPONENT Service : "
-    sed -i -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
+    sed -i -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' ${APPUSER_DIR}/systemd.service
     mv ${APPUSER_DIR}/systemd.service  /etc/systemd/system/${COMPONENT}.service
     stat $?
 }
@@ -106,6 +106,24 @@ MAVEN() {
     cd /home/${APPUSER_DIR}/${COMPONENT}/
     mvn clean package  &>>   $LOGFILE
     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar 
+    stat $?
+
+    CONFIG_SVC
+    START_SVC
+
+}
+
+PYTHON() {
+    echo -n "Installing PYTHON : "
+    dnf install python36 gcc python3-devel -y   &>>   $LOGFILE
+    stat $?
+
+    CREATE_USER
+    DOWNLOAD_AND_EXTRACT
+
+    echo -n "Generating the artifact : "
+    cd /home/${APPUSER_DIR}/${COMPONENT}/
+    pip3.6 install -r requirements.txt
     stat $?
 
     CONFIG_SVC
