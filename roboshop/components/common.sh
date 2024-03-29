@@ -107,7 +107,7 @@ MAVEN() {
     DOWNLOAD_AND_EXTRACT
 
     echo -n "Generating the artifact : "
-    cd /home/roboshop/shipping
+    cd home/roboshop/shipping/
     mv ${COMPONENT}-main ${COMPONENT}
     mvn clean package  &>>   $LOGFILE
     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar 
