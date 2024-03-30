@@ -11,9 +11,13 @@ source components/common.sh         #source will keep all the functions local to
 
 echo -e "\e[35m **********__$COMPONENT configuration is Started___************\e[0m"
 
-echo -n "Disabling $COMPONENT repository: "
+# echo -n "Disabling $COMPONENT repository: "
+# dnf module disable mysql -y     &>>  $LOGFILE
+# stat $?
+
+echo "Disabling $COMPONENT repo :"
 dnf module disable mysql -y     &>>  $LOGFILE
-stat $?
+stat $? 
 
 echo -n "Configuring $COMPONENT repository"
 curl -s -L -o /etc/yum.repos.d/mysql.repo $MYSQL_REPO
