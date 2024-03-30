@@ -2,6 +2,10 @@
 #This is a file to host all the COMMON PATTERNs or functions.
 #This can be imported in any of the scripts with the help of source.
 
+LOGFILE="/tmp/${COMPONENT}.log"
+APPUSER="roboshop"
+APPUSER_DIR="/home/roboshop/${COMPONENT}"
+
 ID=$(id -u)
 if [ $ID -ne 0 ] ; then
     echo -e "\e[31m The script is expected to run with sudo or a root user\e[0m  \n\t EX: bash scriptName compName"
@@ -15,10 +19,6 @@ else
     echo -e "\e[31m Failure \e[0m"
 fi
 }
-
-LOGFILE="/tmp/${COMPONENT}.log"
-APPUSER="roboshop"
-APPUSER_DIR="/home/roboshop/${COMPONENT}"
 
 #Declaring create user function:
 CREATE_USER() {
@@ -35,24 +35,25 @@ fi
 
 DOWNLOAD_AND_EXTRACT() {
 
-    echo -n "Downloading the $COMPONENT component"
-    curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
-    stat $?
-
     echo -n "Performing the $COMPONENT cleanup"
     rm -rf ${APPUSER_DIR}    || true   &>> $LOGFILE
+    stat $?
+
+    echo -n "Downloading the $COMPONENT component"
+    curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
     stat $?
 
     echo -n "Extracting the $COMPONENT: "
     cd /home/roboshop
     unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
+    mv /home/${APPUSER}/${COMPONENT}-main /home/${APPUSER}/${COMPONENT}
     stat $?
 
 }
 
 CONFIG_SVC(){
     echo -n "Configuring permission : "
-    mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}  &>> $LOGFILE
+    #mv /home/${APPUSER}/${COMPONENT}-main ${APPUSER_DIR}  &>> $LOGFILE
     chown -R ${APPUSER}:${APPUSER} ${APPUSER_DIR}       &>> $LOGFILE
     stat $?
 
@@ -107,8 +108,8 @@ MAVEN() {
     DOWNLOAD_AND_EXTRACT
 
     echo -n "Generating the artifact : "
-    cd home/roboshop/shipping/
-    mv ${COMPONENT}-main ${COMPONENT}
+    cd home/${APPUSER}/${COMPONENT}/
+    #mv ${COMPONENT}-main ${COMPONENT}
     mvn clean package  &>>   $LOGFILE
     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar 
     stat $?
