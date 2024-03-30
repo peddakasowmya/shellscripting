@@ -109,7 +109,7 @@ MAVEN() {
 
     echo -n "Generating the artifact : "
     cd /home/${APPUSER}/${COMPONENT}/
-    mv ${COMPONENT}-main ${COMPONENT}
+    #mv ${COMPONENT}-main ${COMPONENT}
     mvn clean package  &>>   $LOGFILE
     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar 
     stat $?
