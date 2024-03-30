@@ -5,7 +5,7 @@ echo -e "\e[33m I am MySQL component \e[0m"
 COMPONENT="mysql"
 # LOGFILE="/tmp/${COMPONENT}.log"
 MYSQL_REPO="https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/${COMPONENT}.repo"
-# SCHEMA_URL="https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+SCHEMA_URL="https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 
 source components/common.sh         #source will keep all the functions local to the current script that declared in other file
 
@@ -41,25 +41,24 @@ fi
 
 echo "show plugins;" | mysql -uroot -p${mysql_root_password} | grep validate_password  &>> $LOGFILE
 if [ $? -eq 0 ] ; then
-    echo -n "Installing plugins"
+    echo -n "Uninstalling plugins"
     echo "uninstall plugin validate_password" | mysql -uroot -p${mysql_root_password}
     stat $?
-    echo "show databases;" | mysql -uroot -p${mysql_root_password}   &>> $LOGFILE
 
 fi
 
 echo -n "Downloading the $COMPONENT component: "
-curl -s -L -o /tmp/$COMPONENT.zip $SCHEMA_URL       &>> $LOGFILE
+curl -s -L -o /tmp/${COMPONENT}.zip ${SCHEMA_URL}       &>> $LOGFILE
 stat $?
 
 echo -n "Extracting the $COMPONENT component :"
-ls -ltr /tmp/
+cd /tmp
 unzip -o /tmp/mysql.zip                             &>> $LOGFILE
 stat $?
 
 echo -n "Injecting the schema"
-cd /tmp/${COMPONENT}-main/
-mysql -u root -p${MYSQL_PWD} <shipping.sql    &>> $LOGFILE
+cd ${COMPONENT}-main
+mysql -u root -p${mysql_root_password} <shipping.sql    &>> $LOGFILE
 stat $?
 
 echo -e "\e[35m ********__$COMPONENT configuration is Completed___********\e[0m"
