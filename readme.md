@@ -35,4 +35,21 @@ WET : Write Everything Twice -->
 
 # We haveNodeJS, Python, Java, AngularJS based components...
 
+# -----------------*********---------*************************_----------------
+Lets make bash to create EC2 instances and route 533 records on AWS
+
+# in how many ways can we connect or authenticate to AWS
+* GUI / Console (Username / userPassword)
+* CLI / Commands (we use tokens to authenticate)
+
+Token Generation : Access / Secret key
+
+IAM : Identity and Access Management
+    - We create User Accounts   (Humans)
+    - Group Accounts            (Humans)
+    - IAM roles                 (System)
+
+# IAM helps in achieving 'Least Privilage Principle' ( Zero trust principle)
+AAA : Authentication , Authorization and Auditing
+
 
