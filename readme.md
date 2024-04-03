@@ -56,3 +56,6 @@ AAA : Authentication , Authorization and Auditing
 Vertical scaling --> Adding resources to the same machine again and again on the top of it.
 
 # Vetical scaling vs Horizontal scaling
+
+
+--- One EC2 instance can have n number of security groups
