@@ -47,9 +47,12 @@ Token Generation : Access / Secret key
 IAM : Identity and Access Management
     - We create User Accounts   (Humans)
     - Group Accounts            (Humans)
-    - IAM roles                 (System)
+    - IAM roles                 (System) -- (we can add 1 IAM role per an EC2 instance)
 
 # IAM helps in achieving 'Least Privilage Principle' ( Zero trust principle)
 AAA : Authentication , Authorization and Auditing
 
 
+Vertical scaling --> Adding resources to the same machine again and again on the top of it.
+
+# Vetical scaling vs Horizontal scaling
