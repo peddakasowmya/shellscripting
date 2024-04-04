@@ -62,4 +62,8 @@ Vertical scaling --> Adding resources to the same machine again and again on the
 
 # How are we going to create infra
     - Using AWS CLI Commands wrapped in a script
-    
+
+# JSON
+cat sample.json | jq .Instances[].PrivateIpAddress | sed -e 's/"//g'  ----> COMMAND to get data from json file
+
+

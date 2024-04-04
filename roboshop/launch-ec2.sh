@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script created EC2
+# This script created EC2 & the associated DNS Records for the created servers
 
 AMI_ID="ami-072983368f2a6eab5"
 SGID="sg-097ec9c3903099238"  #Security group ID
@@ -12,7 +12,7 @@ if [ -z $1 ] ; then
     exit 1
 fi
 
-aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SGID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]"
+PRIVATE_IP=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SGID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]")
 
 # 'ResourceType=volume,Tags=[{Key=cost-center,Value=cc123}]'
 
