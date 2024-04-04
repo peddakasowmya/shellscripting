@@ -66,4 +66,12 @@ Vertical scaling --> Adding resources to the same machine again and again on the
 # JSON
 cat sample.json | jq .Instances[].PrivateIpAddress | sed -e 's/"//g'  ----> COMMAND to get data from json file
 
+ENVIRONMENTS:
+    - PROD
+    -NonProd / state
+    - QA
+    -Dev
+
+# Deployment flow:
+    Dev ---> QA --> NonProd ---> Prod
 

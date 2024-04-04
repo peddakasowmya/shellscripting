@@ -10,8 +10,8 @@ COLOR="\e[35m"
 NOCOLOR="\e[0m"
 ENV=$2
 
-if [ -z $1 ] ; then
-    echo -e "\e[31m COMPONENT NAME IS NEEDED: \e[0m"
+if [ -z $1 ] || [ -z $2 ] ; then
+    echo -e "\e[31m COMPONENT & ENV NAMEs arre needed: \e[0m"
     echo -e "\e[31m \t\t Exaple Usage :  \e[0m bash launch-ec2 ratings"
     exit 1
 fi
