@@ -36,5 +36,6 @@ if [ "$1" == all ]; then
         create_ec2 
 
     done
+else 
 create_ec2
 fi
