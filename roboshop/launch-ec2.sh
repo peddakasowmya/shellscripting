@@ -17,7 +17,7 @@ PRIVATE_IP=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro -
 echo "$1 Server is created and here is the IP Address : $PRIVATE_IP"  
 
 echo -e "Creating r53 json file with component name and IP address: "
-sed -e 's/IPADDRESS/${PRIVATE_IP}/g' -e 's/COMPONENT/${COMPONENT}/g' r53.json > /tmp/dns.json
+sed -e 's/IPADDRESS/${PRIVATE_IP}/g' -e 's/COMPONENT/${COMPONENT}/g' route53.json > /tmp/dns.json
 
 echo "Creating DNS record for $COMPONENT :"
 aws route53 change-resource-record-sets --hosted-zone-id $HOSTEDZONE_ID --change-batch file:///tmp/dns.json
