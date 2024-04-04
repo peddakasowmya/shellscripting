@@ -12,7 +12,7 @@ ENV=$2
 
 if [ -z $1 ] || [ -z $2 ] ; then
     echo -e "\e[31m COMPONENT & ENV NAMEs arre needed: \e[0m"
-    echo -e "\e[31m \t\t Exaple Usage :  \e[0m bash launch-ec2 ratings"
+    echo -e "\e[31m \t\t Exaple Usage :  \e[0m bash launch-ec2 dev ratings"
     exit 1
 fi
 
