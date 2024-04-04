@@ -9,6 +9,7 @@ COMPONENT=$1
 if [-z $1] ; then
 echo -e "\e[31m COMPONENT NAME IS NEEDED: \e[0m"
 echo -e "\e[31m \t\t Exaple Usage :  \e[0m bash launch-ec2 ratings"
+exit1
 fi
 
 aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SGID --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]' 
