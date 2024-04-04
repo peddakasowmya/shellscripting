@@ -59,3 +59,7 @@ Vertical scaling --> Adding resources to the same machine again and again on the
 
 
 --- One EC2 instance can have n number of security groups
+
+# How are we going to create infra
+    - Using AWS CLI Commands wrapped in a script
+    
