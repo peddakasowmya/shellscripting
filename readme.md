@@ -99,7 +99,14 @@ To achieve all these JENKINS is the solution
     3) Since LINUX is open source, there are 100s of versions, that also means if we werite a script for CentOS it will not work for Ubuntu
     4) You are supposed to maintain that it works for all flavors
     But in reality it is a tough job !!!!!
-    5) In any org, there might be huge number of servers with diff flavors and
+
+    Centos 6     Centos 7        Centos 8        Ubuntu 18       Ubuntu 20
+    service     systemctl       systemctl       service         service
+    yum            yum              dnf             apt         apt-get
+    
+    5) In any org, there might be huge number of servers with diff flavors.
+
+
 
 
 
