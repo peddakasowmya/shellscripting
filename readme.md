@@ -80,5 +80,17 @@ QUOTA's in AWS  --> It defines what can be maximum number of resources that you 
 
 If you see any resource constraints related to quotas, you can reach AWS or we can also increase the quota
 
+### In organizations, we always use frameworks that gives you logs, that tell when it ran and who ran it. . . . . 
+    1) I want to see the logs
+    2) I want tyo know hen it ran and who ran it
+    3) I also want to control the arguments
+    4) I also need a UI
+
+To achieve all these JENKINS is the solution
+
+    1) create an EC2 instance 
+    2) Install JENKINS on top of it and access it
+    3) Now you can run the jobs.
+
 
 
