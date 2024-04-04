@@ -103,8 +103,11 @@ To achieve all these JENKINS is the solution
     Centos 6     Centos 7        Centos 8        Ubuntu 18       Ubuntu 20
     service     systemctl       systemctl       service         service
     yum            yum              dnf             apt         apt-get
-    
+
     5) In any org, there might be huge number of servers with diff flavors.
+
+----------------------------------- ******************* ------------------***********************-----------------------------------------
+
 
 
 
