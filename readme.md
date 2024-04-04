@@ -75,3 +75,10 @@ ENVIRONMENTS:
 # Deployment flow:
     Dev ---> QA --> NonProd ---> Prod
 
+
+QUOTA's in AWS  --> It defines what can be maximum number of resources that you can use account.
+
+If you see any resource constraints related to quotas, you can reach AWS or we can also increase the quota
+
+
+
