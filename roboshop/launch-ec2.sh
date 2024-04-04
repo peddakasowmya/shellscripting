@@ -18,7 +18,7 @@ fi
 
 create_ec2(){
 
-    PRIVATE_IP=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SGID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}-${ENV}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
+    PRIVATE_IP=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SGID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}-${ENV}}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
     echo -e "$COLOR $1-$2 Server is created and here is the IP Address : $PRIVATE_IP  $NOCOLOR"  
 
     echo -e "$COLOR Creating r53 json file with component name and IP address:  $NOCOLOR "
