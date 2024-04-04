@@ -14,7 +14,6 @@ fi
 
 PRIVATE_IP=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t2.micro --security-group-ids $SGID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$COMPONENT}]" | jq .Instances[].PrivateIpAddress | sed -e 's/"//g')
 
-
 echo "$1 Server is created and here is the IP Address : $PRIVATE_IP"  
 
 
